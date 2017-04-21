@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity (name = "bankwittuser")
+@Entity (name = "bankwittusers")
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
