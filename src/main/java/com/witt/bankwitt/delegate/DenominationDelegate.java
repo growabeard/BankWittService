@@ -34,7 +34,7 @@ public class DenominationDelegate {
 	
 	private Denomination[] getAll(Integer userId) {
 		List<Denomination> returnDenominations = new ArrayList<Denomination>();
-		Iterable<Denomination> allDenominations = denominationRepo.findAllByUserId(userId);
+		Iterable<Denomination> allDenominations = denominationRepo.findAllByUserid(userId);
 		Double totalOverall = 0.0;
 		
 		for(Denomination denomination: allDenominations) {
