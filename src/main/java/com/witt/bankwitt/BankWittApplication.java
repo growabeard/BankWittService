@@ -7,10 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.witt.bankwitt.delegate.DenominationDelegate;
 import com.witt.bankwitt.delegate.UsersDelegate;
-import com.witt.bankwitt.response.ReturnUser;
+import com.witt.bankwitt.delegate.response.UsersDenominationResponse;
+import com.witt.bankwitt.entities.User;
 
 @SpringBootApplication
 @Controller
@@ -18,13 +22,31 @@ public class BankWittApplication {
 	
 	@Autowired
 	UsersDelegate usersDelegate;
+	@Autowired
+	DenominationDelegate denominationsDelegate;
 	
 	@RequestMapping("/users")
     @ResponseBody
-    ResponseEntity<ReturnUser[]> foodListEnpoint() {
+    ResponseEntity<User[]> usersEnpoint() {
    		System.out.println("Looking up users");
-    	ReturnUser[] returnUsers = usersDelegate.getAll();
-    	return new ResponseEntity<ReturnUser[]>(returnUsers, HttpStatus.OK);
+    	User[] returnUsers = usersDelegate.getAll();
+    	return new ResponseEntity<User[]>(returnUsers, HttpStatus.OK);
+    }
+    
+    @RequestMapping("/denominations")
+    @ResponseBody
+    ResponseEntity<UsersDenominationResponse> getDenominationByUser(@RequestParam(value="userId", required=true) Integer id) {
+   		System.out.println("Looking up users");
+   		UsersDenominationResponse individualUserInfo = denominationsDelegate.getIndividualUserInfo(id);
+    	return new ResponseEntity<UsersDenominationResponse>(individualUserInfo, HttpStatus.OK);
+    }
+    
+    @RequestMapping(value = "/savedenominations", method = RequestMethod.POST)
+    @ResponseBody
+    ResponseEntity<UsersDenominationResponse> saveDenominationByUser(@RequestParam(value="denomination", required=true) UsersDenominationResponse input) {
+   		System.out.println("Looking up users");
+   		denominationsDelegate.saveAll(input);
+    	return new ResponseEntity<>(HttpStatus.OK);
     }
     
 	public static void main(String[] args) {

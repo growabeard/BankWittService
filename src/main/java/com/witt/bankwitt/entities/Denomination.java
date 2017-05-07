@@ -3,10 +3,12 @@ package com.witt.bankwitt.entities;
 
 
 import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity (name = "denomination")
 public class Denomination implements Serializable {
@@ -21,13 +23,20 @@ public class Denomination implements Serializable {
 	private Integer count;
 	
 	@Column (name = "value")
-	private Integer value;
+	private Double value;
 	
 	@Column (name = "userid")
 	private Integer userid;
 
 	@Column (name = "label")
 	private String label;
+	
+	@Column (name = "updated")
+	private String updated;
+	
+	@Transient
+	private String total;
+
 
 	public Integer getId() {
 		return id;
@@ -45,11 +54,11 @@ public class Denomination implements Serializable {
 		this.count = count;
 	}
 
-	public Integer getValue() {
+	public Double getValue() {
 		return value;
 	}
 
-	public void setValue(Integer value) {
+	public void setValue(Double value) {
 		this.value = value;
 	}
 
@@ -71,6 +80,20 @@ public class Denomination implements Serializable {
 
 	public void setUserid(Integer userid) {
 		this.userid = userid;
+	}
+
+	public String getUpdated() {
+		return updated;
+	}
+
+	public void setUpdated(String updated) {
+		this.updated = updated;
+	}
+	public String getTotal() {
+		return total;
+	}
+	public void setTotal(String total) {
+		this.total = total;
 	}
 
 }

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.witt.bankwitt.entities.User;
 import com.witt.bankwitt.repositories.UserRepository;
-import com.witt.bankwitt.response.ReturnUser;
 
 @Component
 public class UsersDelegate {
@@ -16,17 +15,18 @@ public class UsersDelegate {
 	@Autowired
 	UserRepository userRepo;
 	
-	public ReturnUser[] getAll() {
-		List<ReturnUser> users = new ArrayList<ReturnUser>();
+	public User[] getAll() {
+		List<User> users = new ArrayList<User>();
 		Iterable<User> allUsers = userRepo.findAll();
 		
 		for(User user: allUsers) {
-			ReturnUser returnUser = new ReturnUser();
-			returnUser.setFirst(user.getFirst());
-			returnUser.setLast(user.getLast());
-			users.add(returnUser);
+			users.add(user);
 		}
-    	return users.toArray(new ReturnUser[users.size()]);
+    	return users.toArray(new User[users.size()]);
+	}
+
+	public User getUser(Integer id) {
+		return userRepo.findBy(id);
 	}
 
 }
