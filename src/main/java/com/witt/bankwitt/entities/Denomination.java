@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
-@Entity (name = "denomination")
+@Entity (name = "denominations")
 public class Denomination implements Serializable {
 
 	private static final long serialVersionUID = 1L;
