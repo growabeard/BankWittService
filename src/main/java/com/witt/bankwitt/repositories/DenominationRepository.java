@@ -6,11 +6,11 @@ import com.witt.bankwitt.entities.Denomination;
 
 public interface DenominationRepository extends CrudRepository<Denomination, Integer> {
 
-	Denomination findBy(String id);
+	Denomination findBy(Integer id);
 	
 	Iterable<Denomination> findAll();
 	
-	Iterable<Denomination> findAllByUserId(Integer id);
+	Iterable<Denomination> findAllByUserid(Integer id);
 	
 	Denomination save(Denomination entity);
 }
