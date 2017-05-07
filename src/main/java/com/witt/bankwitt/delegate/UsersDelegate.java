@@ -26,7 +26,7 @@ public class UsersDelegate {
 	}
 
 	public User getUser(Integer id) {
-		return userRepo.findBy(id);
+		return userRepo.findOne(id);
 	}
 
 }
