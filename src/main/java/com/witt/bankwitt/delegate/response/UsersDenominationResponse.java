@@ -1,22 +1,24 @@
 package com.witt.bankwitt.delegate.response;
 
+import java.util.List;
+
 import com.witt.bankwitt.entities.Denomination;
 import com.witt.bankwitt.entities.User;
 
 public class UsersDenominationResponse {
 	
-	private Denomination[] denominations;
+	private List<Denomination> denominations;
 	private User user;
 
 	public void setUser(User thatUser) {
 		this.user = thatUser;
 	}
 
-	public void setDenominations(Denomination[] thatDenominations) {
+	public void setDenominations(List<Denomination> thatDenominations) {
 		this.denominations = thatDenominations;
 	}
 
-	public Denomination[] getDenominations() {
+	public List<Denomination> getDenominations() {
 		return denominations;
 	}
 

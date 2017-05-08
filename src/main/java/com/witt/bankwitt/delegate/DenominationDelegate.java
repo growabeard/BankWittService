@@ -32,7 +32,7 @@ public class DenominationDelegate {
 		return response;
 	}
 	
-	private Denomination[] getAll(Integer userId) {
+	private List<Denomination> getAll(Integer userId) {
 		List<Denomination> returnDenominations = new ArrayList<Denomination>();
 		Iterable<Denomination> allDenominations = denominationRepo.findAllByUserid(userId);
 		Double totalOverall = 0.0;
@@ -44,7 +44,7 @@ public class DenominationDelegate {
 			returnDenominations.add(denomination);
 		}
 		
-    	return returnDenominations.toArray(new Denomination[returnDenominations.size()]);
+    	return returnDenominations;
 	}
 
 	private Double computeTotal(Double value, Integer count) {
