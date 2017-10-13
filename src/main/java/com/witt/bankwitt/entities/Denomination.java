@@ -34,6 +34,9 @@ public class Denomination implements Serializable {
 	@Column (name = "updated")
 	private String updated;
 	
+	@Column (name = "name")
+	private String name;
+	
 	@Transient
 	private String total;
 
@@ -94,6 +97,14 @@ public class Denomination implements Serializable {
 	}
 	public void setTotal(String total) {
 		this.total = total;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
