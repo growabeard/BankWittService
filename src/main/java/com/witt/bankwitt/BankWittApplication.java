@@ -43,7 +43,7 @@ public class BankWittApplication {
     
     @RequestMapping(value = "/savedenominations", method = RequestMethod.POST)
     @ResponseBody
-    ResponseEntity<UsersDenominationResponse> saveDenominationByUser(@RequestParam(value="denomination", required=true) UsersDenominationResponse input) {
+    ResponseEntity<UsersDenominationResponse> saveDenominationByUser(@RequestBody(value="denomination", required=true) UsersDenominationResponse input) {
    		System.out.println("Looking up users");
    		denominationsDelegate.saveAll(input);
     	return new ResponseEntity<>(HttpStatus.OK);
