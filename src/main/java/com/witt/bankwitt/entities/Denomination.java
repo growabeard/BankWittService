@@ -62,7 +62,7 @@ public class Denomination implements Serializable {
 	}
 
 	public void setValue(Double value) {
-		this.value = value / 10;
+		this.value = value;
 	}
 
 	public String getLabel() {
