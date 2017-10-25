@@ -38,6 +38,7 @@ public class DenominationDelegate {
 		Double totalOverall = 0.0;
 		
 		for(Denomination denomination: allDenominations) {
+			denomination.setValue(denomination.getValue() / 10);
 			Double totalInDenomination = computeTotal(denomination.getValue(), denomination.getCount());
 			totalOverall = totalOverall + totalInDenomination;
 			denomination.setTotal(totalInDenomination.toString());
