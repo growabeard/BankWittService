@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.persistence.SequenceGenerator;
 
 @Entity (name = "denominations")
 public class Denomination implements Serializable {
