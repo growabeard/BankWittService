@@ -47,7 +47,7 @@ public class DenominationDelegate {
     	return returnDenominations;
 	}
 
-	private Double computeTotal(Double value, Integer count) {
+	private Integer computeTotal(Integer value, Integer count) {
 		
 		return value * count;
 	}
