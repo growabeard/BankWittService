@@ -23,7 +23,7 @@ public class Denomination implements Serializable {
 	private Integer count;
 	
 	@Column (name = "value")
-	private Double value;
+	private Integer value;
 	
 	@Column (name = "userid")
 	private Integer userid;
@@ -57,11 +57,11 @@ public class Denomination implements Serializable {
 		this.count = count;
 	}
 
-	public Double getValue() {
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(Double value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
 
