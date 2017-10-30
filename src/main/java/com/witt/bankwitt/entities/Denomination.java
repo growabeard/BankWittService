@@ -16,7 +16,8 @@ public class Denomination implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "denom_seq_gen")
+	@SequenceGenerator(name = "denom_seq_gen", sequenceName = "DENOMINATIONS_seq", allocationSize = 1)
 	private Integer id;
 
 	@Column (name = "count")
