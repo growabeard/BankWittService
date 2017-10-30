@@ -35,10 +35,10 @@ public class DenominationDelegate {
 	private List<Denomination> getAll(Integer userId) {
 		List<Denomination> returnDenominations = new ArrayList<Denomination>();
 		Iterable<Denomination> allDenominations = denominationRepo.findAllByUserid(userId);
-		Double totalOverall = 0.0;
+		Integer totalOverall = 0;
 		
 		for(Denomination denomination: allDenominations) {
-			Double totalInDenomination = computeTotal(denomination.getValue(), denomination.getCount());
+			Integer totalInDenomination = computeTotal(denomination.getValue(), denomination.getCount());
 			totalOverall = totalOverall + totalInDenomination;
 			denomination.setTotal(totalInDenomination.toString());
 			returnDenominations.add(denomination);
