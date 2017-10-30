@@ -1,6 +1,6 @@
 package com.witt.bankwitt.entities;
 
-
+import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
 
