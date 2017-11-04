@@ -1,14 +1,16 @@
 package com.witt.bankwitt.entities;
 
-
+import static javax.persistence.GenerationType.SEQUENCE;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.persistence.SequenceGenerator;
 
 @Entity (name = "denominations")
 public class Denomination implements Serializable {
@@ -16,14 +18,15 @@ public class Denomination implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "denom_seq_gen")
+	@SequenceGenerator(name = "denom_seq_gen", sequenceName = "DENOMINATIONS_seq", allocationSize = 1)
 	private Integer id;
 
 	@Column (name = "count")
 	private Integer count;
 	
 	@Column (name = "value")
-	private Double value;
+	private Integer value;
 	
 	@Column (name = "userid")
 	private Integer userid;
@@ -57,11 +60,11 @@ public class Denomination implements Serializable {
 		this.count = count;
 	}
 
-	public Double getValue() {
+	public Integer getValue() {
 		return value;
 	}
 
-	public void setValue(Double value) {
+	public void setValue(Integer value) {
 		this.value = value;
 	}
 
