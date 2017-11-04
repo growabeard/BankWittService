@@ -9,6 +9,7 @@ public class UsersDenominationResponse {
 	
 	private List<Denomination> denominations;
 	private User user;
+	private String total;
 
 	public void setUser(User thatUser) {
 		this.user = thatUser;
@@ -24,6 +25,14 @@ public class UsersDenominationResponse {
 
 	public User getUser() {
 		return user;
+	}
+
+	public String getTotal() {
+		return total;
+	}
+
+	public void setTotal(String total) {
+		this.total = total;
 	}
 	
 }

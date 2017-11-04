@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.witt.bankwitt.entities.User;
 import com.witt.bankwitt.repositories.UserRepository;
 
-@Component
+@Service
 public class UsersDelegate {
 
 	@Autowired

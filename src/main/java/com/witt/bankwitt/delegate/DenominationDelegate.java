@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.witt.bankwitt.delegate.response.UsersDenominationResponse;
 import com.witt.bankwitt.entities.Denomination;
 import com.witt.bankwitt.repositories.DenominationRepository;
 
-@Component
+@Service
 public class DenominationDelegate {
 
 	@Autowired
@@ -28,11 +28,11 @@ public class DenominationDelegate {
 	public UsersDenominationResponse getIndividualUserInfo(Integer id) {
 		UsersDenominationResponse response = new UsersDenominationResponse();
 		response.setUser(usersDelegate.getUser(id));
-		response.setDenominations(getAll(id));
+		getAll(id, response);
 		return response;
 	}
 	
-	private List<Denomination> getAll(Integer userId) {
+	private void getAll(Integer userId, UsersDenominationResponse response) {
 		List<Denomination> returnDenominations = new ArrayList<Denomination>();
 		Iterable<Denomination> allDenominations = denominationRepo.findAllByUserid(userId);
 		Double totalOverall = 0.0;
@@ -43,8 +43,8 @@ public class DenominationDelegate {
 			denomination.setTotal(totalInDenomination.toString());
 			returnDenominations.add(denomination);
 		}
-		
-    	return returnDenominations;
+		response.setDenominations(returnDenominations);
+		response.setTotal(totalOverall.toString());
 	}
 
 	private Double computeTotal(Double value, Integer count) {
