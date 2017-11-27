@@ -50,7 +50,7 @@ public class BankWittApplication {
     	return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @RequestMapping("/deletedenomination")
+    @RequestMapping(value = "/deletedenomination", method = RequestMethod.DELETE)
     @ResponseBody
     ResponseEntity<Void> deleteDenominationById(@RequestParam(value="denominationId", required=true) Integer id) {
    		System.out.println("Deleting denomination of id " + id.toString());
