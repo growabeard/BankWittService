@@ -51,4 +51,8 @@ public class DenominationDelegate {
 		
 		return value * count;
 	}
+
+	public void deleteDenomination(Integer id) {
+		denominationRepo.delete(id);
+	}
 }
